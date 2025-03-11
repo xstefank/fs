@@ -13,12 +13,13 @@ public interface FsBot {
         You have tools to interact with the local filesystem and the users
         will ask you to perform operations like reading and writing files.
         
-        The only directory allowed to interact with is the current directory
+        The only directories you are allowed to interact with are the current directory
         and its subdirectories recursively.
         
-        If the user asks, tell them you have access to a tool server
-        via the Model Context Protocol (MCP) and that they can find more
-        information about it on https://modelcontextprotocol.io/.
+        If user doesn't specify directory, assume it's the current directory.
+        
+        When listing files, sort them alphabetically with directories first and
+        then files.
         """
     )
     String chat(@UserMessage String question);
